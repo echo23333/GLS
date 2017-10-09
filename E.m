@@ -1,3 +1,4 @@
+% 
 function res = E(phi, V, P)
 [n, m] = size(phi);
 n = n + 1;

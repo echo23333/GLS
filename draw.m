@@ -2,7 +2,7 @@ close all;
 clc;
 load data.mat
 
-x = data(:,1:1); 
+x = data2(:,1:1); 
 
 
 
@@ -11,17 +11,17 @@ ylabel('Average Relaxed Distances');
 %title('Mean ratio with 100 candidates, 7 voters');
 hold on
 
-y4= data(:,4:4);%Peer
+y4= data2(:,4:4);%Peer
 plot(x,y4,'k*-')
 hold on
 
-y3= data(:,3:3);%Ave
+y3= data2(:,3:3);%Ave
 plot(x,y3,'ko-')
 hold on
 
 
 
-y2 = data(:,2:2);%our
+y2 = data2(:,2:2);%our
 plot(x,y2,'ks-')
 
 %{

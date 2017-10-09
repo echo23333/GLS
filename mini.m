@@ -1,7 +1,8 @@
+%One step of GLS method
 function [M,V0,fval] = mini(V,P)
 s = size(P,1);
 
-[V0, fval] = HarryGuo(V, P);
+[V0, fval] = OPT(V, P);
 M = P';
 
 for i = 1:s

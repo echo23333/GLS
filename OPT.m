@@ -1,11 +1,12 @@
-function [V0, fval] = HarryGuo(V, P)
+%use the fmincon function to get the optimal V0.
+function [V0, fval] = OPT(V, P)
 [n, m] = size(V);
 LB = zeros(n - 1, 1);
 UB = ones(n - 1, 1) * pi/2;
 UB(n - 1) = pi/2;
 phi0 = rand(n - 1, 1) * pi/2;
 phi0(n - 1) = phi0(n - 1) * 2;
-OPTIONS = optimoptions('fmincon','Algorithm','sqp');
+%OPTIONS = optimoptions('fmincon','Algorithm','sqp');
 [phi, fval] = fmincon(@(phi) E(phi, V, P), phi0, [], [], [], [], LB, UB);
 V0 = zeros(n, 1);
 V0(1) = 1;

@@ -1,31 +1,34 @@
-s = 50;
+%%The final codes to get the result of three different methods.
 
+%Set the parameter of the random instances
+%s is the size of the matrix
+s= 5;
+%round is the number of repetition of the experiments.
 round =100;
 
-E_our = 0;
+E_GLS = 0;
 E_peer = 0;
 E_average = 0;
-E_oly = 0;
 count = 0;
+
+%Test the performance of these three methods.
 for i = 1:round
-    [t1,t2,t3,t4] = experiment(s);
-    E_our = E_our + t1;
+    [t1,t2,t3] = experiment(s);
+    E_GLS = E_GLS + t1;
     E_peer = E_peer + t2;
     E_average = E_average + t3;
-    E_oly = E_oly + t4;
     count = count + 1
 end
 
-A_our = E_our / round;
+A_GLS = E_GLS / round;
 A_peer = E_peer / round;
 A_ave = E_average / round;
-%A_oly = E_oly / round;
 
+%Save the result.
 data2 = ones(1,4);
 data2(1) = s;
-data2(2) = A_our;
+data2(2) = A_GLS;
 data2(3) = A_peer;
 data2(4) = A_ave;
-%data2(5) = A_oly;
-data2
+
 save data2
